@@ -53,8 +53,7 @@ function generateMatch() {
   let team2 = getRandomTeam();
   let goals1 = getRandomGoal(team1);
   let goals2 = getRandomGoal(team2);
-  pintDate(team1, goals1, team2, goals2);
-  saveMatch(team1, goals1, team2, goals2);
+
   let result = checkLength(teams);
   if (!result) {
     return;
@@ -75,12 +74,16 @@ function pintDate(team1, goals1, team2, goals2) {
 function saveMatch(team1, goals1, team2, goals2) {
   let nextDiv = document.createElement("tr");
   let t1 = document.createElement("td");
+  t1.className = "td-team"
   t1.textContent = team1.name;
   let t1Goals = document.createElement("td");
+  t1Goals.className = "tGoals"
   t1Goals.textContent = goals1;
   let t2 = document.createElement("td");
+  t2.className = "td-team"
   t2.textContent = team2.name;
   let t2Goals = document.createElement("td");
+  t2Goals.className = "tGoals"
   t2Goals.textContent = goals2;
   nextDiv.appendChild(t1);
   nextDiv.appendChild(t1Goals);
@@ -97,5 +100,8 @@ function checkLength(array) {
     return false;
   }
 }
+
+//Registra las jornadas
+
 
 btn.addEventListener("click", generateMatch);
