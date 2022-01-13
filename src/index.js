@@ -1,54 +1,54 @@
 const teams = [
   {
     name: "Barcelona",
-    image: "./src/assets/Barcelona.png",
+    image: "./assets/Barcelona.png",
     goals: 0,
     played: false,
   },
   {
     name: "R.Madrid",
-    image: "/src/assets/Real Madrid.png",
+    image: "./assets/Real Madrid.png",
     goals: 0,
     played: false,
   },
   {
     name: "Sevilla",
-    image: "/src/assets/Sevilla.gif",
+    image: "./assets/Sevilla.gif",
     goals: 0,
     played: false,
   },
   {
     name: "Real Betis",
-    image: "/src/assets/Betis.gif",
+    image: "./assets/Betis.gif",
     goals: 0,
     played: false,
   },
   {
     name: "R.Sociedad",
-    image: "/src/assets/Real Sociedad.gif",
+    image: "./assets/Real Sociedad.gif",
     goals: 0,
     played: false,
   },
   {
     name: "Valencia",
-    image: "/src/assets/Valencia.gif",
+    image: "./assets/Valencia.gif",
     goals: 0,
     played: false,
   },
   {
     name: "Villareal",
-    image: "/src/assets/Villarreal.gif",
+    image: "./assets/Villarreal.gif",
     goals: 0,
     played: false,
   },
   {
     name: "Levante",
-    image: "/src/assets/Levante.gif",
+    image: "./assets/Levante.gif",
     goals: 0,
     played: false,
   },
-  { name: "Celta", image: "/src/assets/Celta.gif", goals: 0, played: false },
-  { name: "Cadiz", image: "/src/assets/Cadiz.gif", goals: 0, played: false },
+  { name: "Celta", image: "./assets/Celta.gif", goals: 0, played: false },
+  { name: "Cadiz", image: "./assets/Cadiz.gif", goals: 0, played: false },
 ];
 
 const results = [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 4, 4, 5];
@@ -63,7 +63,7 @@ const team_1Image = document.querySelector("#team-1-image");
 const team_2Image = document.querySelector("#team-2-image");
 
 //Funcion elegir equipo
-function getRandomTeam() {
+/*function getRandomTeam() {
   let team1 = teams.pop();
   let result = true;
   result = checkLength(teams + 2);
@@ -73,7 +73,7 @@ function getRandomTeam() {
     return team1;
   }
 }
-
+*/
 //Funcion goles
 
 function getRandomGoal(teams) {
@@ -87,6 +87,17 @@ function getRandomGoal(teams) {
   }
 }
 
+//Random team
+function getRandomTeam(teams) {
+  let result = checkLength(teams);
+  if (!result) {
+    return;
+  } else {
+    let pos = Math.floor(Math.random() * teams.length);
+    return teams[pos];
+  }
+}
+
 //Pinta los datos
 function pintDate(team1, goals1, team2, goals2) {
   team_1.textContent = team1.name;
@@ -97,15 +108,14 @@ function pintDate(team1, goals1, team2, goals2) {
   team_2Image.src = team2.image;
 }
 
-/*function generateImg() {
+function generateImg(image1,image2) {
   let img1Div = document.createElement("img");
-  img1Div.src = team1.image;
+  img1Div.src = image1;
   let img2Div = document.createElement("img");
-  img2Div.src = team2.image;
-
+  img2Div.src = image2;
   team_1Image.appendChild(img1Div);
   team_2Image.appendChild(img2Div);
-}*/
+}
 
 function saveMatch(team1, goals1, team2, goals2) {
   let nextDiv = document.createElement("tr");
@@ -141,8 +151,8 @@ function checkLength(array) {
 
 //Genera puntuacion
 function generateMatch() {
-  let team1 = getRandomTeam();
-  let team2 = getRandomTeam();
+  let team1 = getRandomTeam(teams);
+  let team2 = getRandomTeam(teams);
   let goals1 = getRandomGoal(team1);
   let goals2 = getRandomGoal(team2);
 
@@ -152,6 +162,7 @@ function generateMatch() {
   } else {
     pintDate(team1, goals1, team2, goals2);
     saveMatch(team1, goals1, team2, goals2);
+    generateImg(team1.image,team2.image)
   }
 }
 

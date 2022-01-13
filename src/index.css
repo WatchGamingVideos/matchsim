@@ -29,6 +29,11 @@ tr {
   height: 200px;
 }
 
+#team-1-image,#team-2-image{
+  width: 100px;
+  padding: 1em;
+}
+
 #result1,
 #result2 {
   display: flex;
@@ -61,7 +66,7 @@ tr {
 }
 
 #button {
-  height: 30px;
+  height: 40px;
   width: 150px;
   transform: translate(0px, +60px);
 }
