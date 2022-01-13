@@ -10,6 +10,8 @@ body {
 tr {
   display: grid;
   grid-template-columns: repeat(4, 80px);
+  grid-template-rows: 50px;
+  border: 1px solid rgba(139, 139, 139, 0.37);
 }
 
 .tGoals{
@@ -71,14 +73,14 @@ tr {
   background-color: lightblue;
   border: 2px solid rgba(129, 129, 129, 0.473);
   transform: translate(-650px, 300px);
-  width: min-content;
-  height: min-content;
+  width: 330px;
+  min-height: 50px;
+  max-height: 300px;
   padding: 5px;
 }
 
 
 .td-team {
-  border: 1px solid rgba(139, 139, 139, 0.37);
   text-align: center;
   align-self: center;
 }
