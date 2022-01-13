@@ -1,23 +1,64 @@
 body {
   display: flex;
   justify-content: center;
+  align-items: center;
   font-size: 20px;
   width: 100%;
   height: 100vh;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 100%;
+}
+
+
+/* table {
+  background-color: rgba(207, 207, 207, 0.404);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+} */
+/* td {
+  padding: 10px;
+  background-color: rgba(236, 236, 236, 0.322);
+  border: 1px solid rgba(216, 216, 216, 0.26);
+  width: 130px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+} */
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#football-simulator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 tr {
   display: grid;
-  grid-template-columns: repeat(4, 80px);
+  grid-template-columns: repeat(4, 120px);
   grid-template-rows: 50px;
+  place-content: center;
   border: 1px solid rgba(139, 139, 139, 0.37);
+  padding: 5px;
 }
 
 .tGoals{
+  align-self: center;
   background-color: rgb(250, 250, 250);
   text-align: center;
   border: 1px solid rgba(139, 139, 139, 0.37);
+}
+
+#team-1-image,
+#team-2-image {
+  width: 54px;
+  height: 65px;
+  padding: 5px;
 }
 
 #simulator {
@@ -29,10 +70,7 @@ tr {
   height: 200px;
 }
 
-#team-1-image,#team-2-image{
-  width: 100px;
-  padding: 1em;
-}
+
 
 #result1,
 #result2 {
@@ -66,18 +104,30 @@ tr {
 }
 
 #button {
-  height: 40px;
-  width: 150px;
-  transform: translate(0px, +60px);
+  height: 50px;
+  width: 200px;
+  transform: translate(0px, +90px);
+  padding: 5px;
+  font-size: 1em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 #button:hover {
   background-color: rgba(241, 77, 77, 0.582);
   border: 2px inset rgba(165, 165, 165, 0.363);
 }
+
+.results {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  padding: 45px;
+}
+
 #resultTable {
   background-color: lightblue;
   border: 2px solid rgba(129, 129, 129, 0.473);
-  transform: translate(-650px, 300px);
+  /* transform: translate(-650px, 300px); */
   width: 330px;
   min-height: 50px;
   max-height: 300px;
